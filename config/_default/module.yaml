@@ -1,16 +1,12 @@
-############################
-## HUGO MODULES
-## Install or uninstall themes and plugins here.
-## Docs: https://gohugo.io/hugo-modules/
-############################
-
 imports:
   - path: github.com/HugoBlox/hugo-blox-builder/modules/blox-plugin-netlify
+
   - path: github.com/HugoBlox/hugo-blox-builder/modules/blox-tailwind
-      mounts:
+    mounts:
       - source: layouts
         target: layouts
-        excludeFiles: ["_partials/site_footer.html"]
+        excludeFiles:
+          - _partials/site_footer.html
       - source: assets
         target: assets
 
@@ -19,13 +15,17 @@ mounts:
   - source: hugo-blox/blox/community
     target: layouts/_partials/blox/community/
     includeFiles: '**.html'
+
   - source: hugo-blox/blox/all-access
     target: layouts/_partials/blox/
     includeFiles: '**.html'
+
   - source: hugo-blox/blox
     target: assets/dist/community/blox/
     includeFiles: '**.css'
+
   - source: layouts
     target: layouts
+
   - source: assets
     target: assets
