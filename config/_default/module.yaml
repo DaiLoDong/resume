@@ -7,6 +7,12 @@
 imports:
   - path: github.com/HugoBlox/hugo-blox-builder/modules/blox-plugin-netlify
   - path: github.com/HugoBlox/hugo-blox-builder/modules/blox-tailwind
+      mounts:
+      - source: layouts
+        target: layouts
+        excludeFiles: ["_partials/site_footer.html"]
+      - source: assets
+        target: assets
 
 # Install any Hugo Blox within the `hugo-blox/blox/` folder
 mounts:
