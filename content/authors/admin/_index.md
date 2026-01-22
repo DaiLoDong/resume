@@ -44,7 +44,7 @@ profiles:
 interests:
   - Gaming
   - Cooking
-  - Building custom keyboards
+  - Self-hosting Linux apps
   - Photography
 
 education:
@@ -54,6 +54,7 @@ education:
     date_end: 2020-05-01
     summary: |2-
       Capstone project: NI 43-101 full pre-feasibility study of a surface iron mine in Western Australia with complex zoning and enviromental regulatory concerns.
+      Led analysis for multivariable cokriging and statistical resource estimation.
     
 # button:
 # text: 'Read Thesis'
@@ -190,11 +191,11 @@ skills:
 #        percent: 80
 #        icon: pan
 
-languages:
-  - name: English
-    percent: 100
-  - name: Mandarin Chinese
-    percent: 75
+# languages:
+#   - name: English
+#     percent: 100
+#   - name: Mandarin Chinese
+#     percent: 75
 
 # Awards.
 #   Add/remove as many awards below as you like.
