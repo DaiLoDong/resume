@@ -68,19 +68,17 @@ work:
     date_start: 2025-09-08
     date_end: ''
     summary: |2-
-      Supports dimesional modelling on Wenco-Minestar data migration as a technical team member.
-
-      Develops, tests, and documents code to support the creation of robust and scalable applications for data reporting and analytics (JSON, SQL, Python)
-
-      Tests and builds automated processes to support product development lifecycle.
-
-      Supports the implementation of data models to build the data lake for analytics and reporting use cases.
-
-      Adheres to Data Modeling, Data Warehousing naming conventions, data governance, and Information Classification policies.
-
-      Catalogue’s data artifacts that integrate information from various sources into a common repository.
-
-      Develop end to end data pipelines following best practices in product development and operations.
+      Deliver dimensional modeling for the Wenco-MineStar migration, mapping MineStar data to existing Wenco structures to keep a high-priority enterprise project moving through key blockers (SQL).
+    
+      Identified an early gap in the Data Publish (CAT) service and drove engagement with CAT to develop an integration path, leveraging prior MineStar subject-matter expertise (SQL, Visual Basic).
+    
+      Lead developer on the LVF (Light Vehicle Fleet) reporting project, owning end-to-end delivery through the full RFO deployment process to provide safety-critical event reporting recognized by senior leadership.
+    
+      Develop features and resolve bugs on MineConnect within an Agile framework, consistently delivering on or ahead of schedule on high-impact items (SQL, Python).
+    
+      Apply a mining engineering background to challenge logic implementations and refine business rules, resulting in more accurate operational metrics across reporting products.
+    
+      Build and maintain end-to-end data pipelines, dimensional models, and cataloguing for the enterprise data lake and warehouse using SQL and Python, aligned to governance and information classification standards.
     
   - position: Data Specialist - Condition Based Monitoring
     company_name: Finning International
