@@ -7,58 +7,66 @@ links:
 tags:
   - wedding
   - custom-website
+  - front-end
+  - back-end
 ---
 
-When the love of my life and I started planning our wedding, the standard playbook didn't sit right with me. Paper invites get buried in drawers, RSVP cards take weeks to arrive (if we are lucky and Canada Post isn't on a strike), and the moment a guest has a question: *what time does it start? Where do I park? Can I bring a plus-one?* they're stuck digging through old emails or texting one of us sent at midnight. I wanted something better. So I built it.
+When my wife and I started planning our wedding, the standard canned "custom" website templates didn't sit right with me. Paper invites get misplaced, physical RSVP cards can take weeks to arrive (if we are lucky and Canada Post isn't on strike), and an evergrowing FAQ isn't a sustainable solution. 
+
+I wanted something better. I could build something better.
 <!--more-->
 
 ## Why a custom site
 
-I could have used one of the off-the-shelf wedding website builders. They're fine. But "fine" wasn't what I wanted for one of the most important days of our lives, and I knew exactly the experience I was chasing: **one link that guests could open on any device, find everything they needed in seconds, and act on without friction.** RSVP in one tap. Get directions in one tap. Add the event to their calendar. Check the weather, book a flight, find their seat. All without leaving the page or emailing me.
+Why buy an off the shelf suit, when you can get one tailored for you.
 
-I'll admit I got obsessive about the user experience. Every feature on the site started as a real question a guest asked us, or a real moment of friction I noticed someone else hit at a wedding I'd been to. If it took more than two taps to answer, I considered that unacceptable.
+I could have used one of the off-the-shelf wedding website builders. They're ok. But "ok" wasn't really good enough for a wedding, much less my own wedding. I wanted a single link that guests could open on any device, find everything they needed in a handful of seconds and act on without friction. I honestly just did not want emails with questions.
+
+I am very particular about the user experience. I am one of those users who has a custom config for everything I use. Every feature on the site started as a real question a guest asked us (before the site was even live!), or a real moment of friction I had experienced at another wedding. If it took more than 15 seconds to answer, I considered that too cumbersome.
+
 
 ## What the site does
 
-The site became the single landing page for everything wedding related. Some highlights:
+The site became the central landing page for everything wedding related. Some highlights:
 
 ### Guest experience
 
-- **Fully responsive design** that works on every device, because the majority of guests opened it on their phones
-- **One-tap RSVP** that writes directly to a Google Sheet via a Google Apps Script REST endpoint. No third party form service, no signup required
-- **Digital seating chart** searchable by either guest name or table number using a lightweight JS string search
-- **Add to Calendar** with support for Google, iCal, Outlook, and Yahoo. Whichever ecosystem the guest prefers
-- **Countdown timer** showing time remaining until the ceremony
-- **Embedded venue video** with a fallback image on mobile to keep things fast
+- **Fully responsive design** that works on every device, screen size, and aspect ratio.
+- **One-tap RSVP** that writes directly to a Google Sheet via a Google Apps Script REST endpoint. No third party form service, no signup required.
+- **Digital seating chart** searchable by either guest name or table number using a lightweight JS string search.
+- **Add to Calendar** with support for Google, iCal, Outlook, and Yahoo. Whichever ecosystem the guest prefers.
+- **Countdown timer** showing time remaining until the ceremony.
+- **Embedded venue video** with a fallback image on mobile to keep things fast.
 
 ### Travel and logistics
 
-- **Interactive Google Maps** powered by the Google Maps Platform API, showing both the ceremony and reception locations with directions
-- **Flight booking shortcut** that auto-detects the visitor's location and pre-fills the origin city
-- **Weather forecast** for the wedding date via a third-party API. Important because the ceremony was outdoors and I didn't want anyone showing up in the wrong shoes
+- **Interactive Google Maps** powered by the Google Maps Platform API, showing both the ceremony and reception locations with directions.
+- **Flight booking shortcut** that auto-detects the visitor's location and pre-fills the origin city and event date.
+- **Weather forecast** for the wedding date via a third-party API. Important because the ceremony was outdoors and rain is always a probability in Victoria.
 
-### Event gallery (the favourite feature)
+### Event gallery (the crowd favourite)
 
-This one was the most fun to build. Guests could upload their event photos directly through the site and watch the gallery update **live** for everyone else viewing it.
+This one was the most fun to build. Guests could upload their event photos directly through the site and watch the gallery update live for everyone else viewing it.
 
-- A **Cloudflare Worker** handles uploads, retrievals, and CORS headers
-- Image data is stored on a private image host
-- **Cloudflare KV** acts as a lightweight database for metadata
+- A **Cloudflare Worker** handles uploads, retrievals, and CORS headers.
+- Image data is stored on a private image host.
+- **Cloudflare KV** acts as a lightweight database for metadata.
 
-The result was a shared, real-time photo wall that captured candid moments from dozens of angles I'd never have gotten from a single photographer.
+The result was a shared, real-time photo wall that captured candid moments from dozens of angles I would have never gotten from a single photographer.
 
 ### Behind the scenes
 
-- **Automated email alerts** to my inbox the moment anyone RSVP'd, handled by Google Apps Script triggering Gmail sends — so I always knew the count was current without having to refresh the sheet
-- **Custom domain** hosted on GitHub Pages and routed through my own Cloudflare domain, with full DNS control
+- **Automated email alerts** to my inbox the moment anyone RSVPs, handled by Google Apps Script triggering Gmail sends so I always know the expected head count.
+- **Custom domain** hosted on GitHub Pages and routed through my own Cloudflare domain, with full DNS control and analytics.
 
-## What I learned
+## Retrospective
 
-Building this taught me more about **end-to-end product thinking** than most professional projects I've worked on. When you're the developer, the designer, the QA, *and* one of the users, every shortcut you take comes back to bite you within a week. I rewrote the RSVP flow three times before I was happy with it. I obsessed over how the seating-chart search behaved when guests typed half a name. I tested the calendar feature on borrowed phones to make sure it worked on operating systems I'd never used.
+Building this taught me more about shipping product than most professional projects I've worked on. I was the developer, the designer, the QA, and a user. It's not often you sit on every side of a project at once, and it makes you a lot more aware of tradeoffs. The right technical decision and the right design decision aren't always the same one. 
 
-The reward was watching it actually get used the way I'd hoped. Guests RSVP'd within hours of the site going live. People used the gallery in real time during the reception. A few guests told us, unprompted, that it was the smoothest wedding logistics they'd ever experienced — which was exactly the bar I'd set.
+The reward was watching it actually work on the days leading up to the wedding and of course on the day itself. Having guests RSVP within hours of the site going live and using the gallery in real time during the reception brought a great feeling of accomplishment. A few guests told us, unprompted, that it was the smoothest wedding logistics they'd ever experienced.
 
-It also turned into one of my favourite technical projects because of how much of the stack I touched: frontend, responsive design, serverless functions, multiple third-party APIs, a custom domain pipeline, and a lightweight backend held together by Cloudflare Workers and Google Apps Script. All for free, all under my own infrastructure.
+With how much weddings cost, the cherry on top was it's all free.
+
 
 ## Stack
 
